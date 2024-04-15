@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 //importando los modulos de firebase
-import appFireBase from './credenciales'
+import appFireBase from '../src/credenciales'
 import {getAuth, onAuthStateChanged} from 'firebase/auth'
 const auth = getAuth(appFireBase)
 
@@ -26,11 +26,10 @@ function App() {
     }
   })
 
-  const [count, setCount] = useState(0)
 
   return (
     <div>
-      {usuario ? <Home correoUsuario = {usuario.email} /> : <login/>}
+      {usuario ? <Home correoUsuario = {usuario.email} /> : <Login/>}
     </div>
   )
 }
