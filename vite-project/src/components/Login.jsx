@@ -18,10 +18,18 @@ const Login = () => {
         const contraseña = e.target.password.value;
         
         if (registrando) {
-            await createUserWithEmailAndPassword(auth, correo, contraseña)
+            try {
+                await signInWithEmailAndPassword(auth, correo, contraseña)
+            } catch (error) {
+                alert("asegurese que la contraseña tenga minimo 8 caracteres")
+            }
         }
         else {
-            await signInWithEmailAndPassword(auth, correo, password)
+            try {
+                await signInWithEmailAndPassword(auth, correo, contraseña)
+            } catch (error) {
+              alert("El correo o la contraseña son invalidos")  
+            }          
         }
     }
 
